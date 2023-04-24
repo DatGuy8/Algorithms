@@ -94,3 +94,4 @@ function buildCombinationFrom(string, openUsed, closeUsed, n, combinations) {
         // Add 1 closing, update closing used:
         buildCombinationFrom(string + ')', openUsed, closeUsed + 1, n, combinations);
     }
+}
