@@ -1,4 +1,4 @@
-/**
+/**LEETCODE 128
  * @param {number[]} nums
  * @return {number}
  */
@@ -8,17 +8,22 @@ var longestConsecutive = function (nums) {
   let count = 1;
   let highestCount = 1;
   for (i = 0; i < sortedNums.length; i++) {
-    while (sortedNums[i] + 1 == sortedNums[i + 1] || sortedNums[i] == sortedNums[i+1]) {
+    if (sortedNums[i + 1] - sortedNums[i] == 1) {
       count++;
-      i++;
+      console.log("added");
+      if (count > highestCount) {
+        highestCount = count;
+      }
+    } else if(sortedNums[i] == sortedNums[i+1]) {
+      continue;
     }
-    if(count > highestCount){
-      highestCount = count;
+    
+    else {
+      count = 1;
     }
-    count=1;
   }
 
-  return(highestCount);
+  return highestCount;
 };
 
 const num1 = [100, 4, 200, 1, 3, 2];
