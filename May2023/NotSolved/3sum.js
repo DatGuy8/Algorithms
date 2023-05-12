@@ -8,24 +8,42 @@ Notice that the solution set must not contain duplicate triplets.
  */
 var threeSum = function (nums) {
   const returnArr = [];
-  for (let i = 0; i < nums.length; i++) {
-    let target = nums[i];
+  nums.sort((a, b) => a - b);
+  console.log(nums);
+
+  let target = 0;
+
+  for (let i = 0; i < nums.length - 2; i++) {
+    if (nums[i] > target) break;
+
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+    let j = i + 1;
+
     let k = nums.length - 1;
-    
-    for(let j = i + 1; j < k; j++){
-      console.log("nums j", nums[j]);
-      console.log("nums k", nums[k]);
-      if(nums[j] + nums[k] + nums[i] == 0){
-        console.log("here");
-        returnArr.push([nums[i], nums[j],nums[k]]);
-      }else{
+
+    while (j < k) {
+      let sum = nums[i] + nums[j] + nums[k];
+
+      if (sum === target) {
+        returnArr.push([nums[i], nums[j], nums[k]]);
+
+        while (nums[j] === nums[j + 1]) j++;
+        while (nums[k] === nums[k - 1]) k--;
+
+        j++;
+        k--;
+      } else if (sum < target) {
+        j++;
+      } else {
         k--;
       }
     }
   }
-  return returnArr
+
+  return returnArr;
 };
 
-const nums1 = [-1,0,1,2,-1,-4];
+const nums1 = [-1, 0, 1, 2, -1, -4];
 
 console.log(threeSum(nums1));
