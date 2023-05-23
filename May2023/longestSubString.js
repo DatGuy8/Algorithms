@@ -4,8 +4,8 @@
   Given a string, find the length of the longest substring without repeating characters.
 */
 
-const str1 = "abcabcbb";
-const expected1 = 3;
+const str1 = "jbpnbwwd";
+const expected1 = 4;
 // Explanation: The answer is "abc", with the length of 3.
 
 const str2 = "bbbbb";
@@ -29,65 +29,56 @@ const expected4 = 4;
  * - Space: O(?).
  */
 function lengthOfLongestSubString(str) {
-    let obj = {};
-    let count = 0;
-    let max = 1;
+  let set = new Set();
+  let left = 0;
+  let maxSize = 0;
 
-    let i = 0;
-    while (i < str.length) {
-        if (!obj[str[i]]) {
-            obj[str[i]] = i;
-            count++;
-            i++;
-            console.log(obj)
-            // console.log(i)
-        }
-        else if (obj[str[i]]) {
-            if (i == str.length - 1) {
-                break;
-            }
-            if (count > max) {
-                max = count;
-            }
-            count = 0;
-            i = obj[str[i]] + 1;
-            obj = {}
-            // console.log('else', i)
-        }
+  if (str.length === 0) return 0;
+  if (str.length === 1) return 1;
+
+  for(let i = 0; i < str.length;i++){
+
+    //===========if set has repeating characters, deletes everything in the set========
+    while(set.has(str[i])){
+      set.delete(str[left])
+      left++;
     }
-    if (count > max) {
-        return count;
-    }
-    return max
-    
+  //===============adds to the set==============
+  set.add(str[i]);
+  //=================choses the highest number ======================
+  maxSize = Math.max(maxSize, i - left + 1)
+
+  }
+  return maxSize;
 }
 
 
-// working solution
-function lengthOfLongestSubString(str) {
-    let newObj = {};
-    let maxCount = 0;
-    let counter = 0;
-    for(let i=0; i<str.length; i++) {
-        for(let j = i; j<str.length; j++ ){
-            if(!newObj[str[j]]) {
-                newObj[str[j]] = 1
-                counter++
-            } else {
-                if(counter > maxCount) {
-                    maxCount = counter
-                }
-                newObj = {};
-                counter = 0;
-            }
-        }
-    }
-    return maxCount;
-}
+// not working solution
+// function lengthOfLongestSubString(str) {
+//     let newObj = {};
+//     let maxCount = 0;
+//     let counter = 0;
+//     for(let i=0; i<str.length; i++) {
+//         for(let j = i; j<str.length; j++ ){
+//             if(!newObj[str[j]]) {
+//                 newObj[str[j]] = 1
+//                 counter++
+//                 console.log(newObj);
+//             } else {
+//                 if(counter > maxCount) {
+//                     maxCount = counter
+//                 }  
+//                 newObj = {};
+//                 counter = 0;
+//             }
+//         }
+//     }
+//     return maxCount;
+// }
 console.log(lengthOfLongestSubString(str1))
-console.log(lengthOfLongestSubString(str2))
-console.log(lengthOfLongestSubString(str3))
-console.log(lengthOfLongestSubString(str4))
+// console.log(lengthOfLongestSubString(str2))
+// console.log(lengthOfLongestSubString(str3))
+// console.log(lengthOfLongestSubString(str4))
 
 // =======================================================================================================
 
