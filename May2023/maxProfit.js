@@ -3,7 +3,7 @@
  * @return {number}
  */
 
-const prices1 = [7, 1, 5, 3, 6, 4];
+const prices1 = [7, 2, 1,15, 3, 6, 4];
 
 
 //==================MY SLOW SOLUTION============================
