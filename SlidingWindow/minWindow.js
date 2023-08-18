@@ -41,7 +41,7 @@ const minWindow = (s, t) => {
 
             const leftPoint = s[left];
 
-            if(map[leftPoint]== 0) count++;
+            if(map[leftPoint] == 0) count++;
 
             map[leftPoint]++;
 
