@@ -72,8 +72,6 @@ const carFleet = (target, position, speed) => {
     }
     
     return fleet;
-
-
 };
 
 
