@@ -50,7 +50,7 @@ var searchMatrix = function (matrix, target) {
 };
 
 // can do this cuz its all sorted
-// binary searches the column then the selected row 0 log m * n
+// binary searches the column then the selected row O log m * n
 const searchMatrixFaster = (matrix, target) => {
     const rowIndex = searchPotentialRow(matrix, target);
     if (rowIndex != -1) return binarySearchRow(rowIndex, matrix, target);
