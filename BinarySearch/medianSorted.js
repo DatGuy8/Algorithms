@@ -44,7 +44,7 @@ const findMedianSortedArrays = (nums1, nums2) => {
             return nums1[p1] < nums2[p2] ? nums1[p1++] : nums2[p2++];
         }
         else if(p1 < nums1.length){
-            return nums1[p1++];
+            return nums1[p1++]; // okay so these p1++ ..... basically it returns nums1[p1] first then it increments p1++;
         }
         else if(p2 < nums2.length){
             return nums2[p2++];
