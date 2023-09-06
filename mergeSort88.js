@@ -33,7 +33,9 @@ Explanation: The arrays we are merging are [] and [1].
 The result of the merge is [1].
 Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
  * 
- *  Tought Process: so looking into se  
+ *  
+ * 
+ *  This solution is the the two point solution, there is a three point solution that is a little better.
  * 
  */
 var merge = function(nums1, m, nums2, n) {
