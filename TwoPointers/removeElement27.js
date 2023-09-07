@@ -44,7 +44,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
  */
 
-var removeElement = function(nums, val) {// uses two point
+var removeElement = function(nums, val) { // uses two point
     
     let count = 0;
     let start = 0;
